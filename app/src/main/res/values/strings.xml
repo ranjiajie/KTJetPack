@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">KTJetPack</string>
+    <string name="edittext">请输入</string>
 </resources>

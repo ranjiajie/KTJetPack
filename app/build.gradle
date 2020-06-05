@@ -1,26 +1,30 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
     defaultConfig {
         applicationId "com.example.ktjetpack"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+//    开启dataBinding
+    dataBinding {
+        enabled true
     }
 
 }
@@ -35,11 +39,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    //interceptor拦截器
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
     // Retrofit和jxjava关联
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
+//    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
     // Retrofit使用Gson转换
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
@@ -47,9 +52,6 @@ dependencies {
 //    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
 //    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     def lifecycle_version = "2.2.0"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-
-
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
 }
