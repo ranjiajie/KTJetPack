@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">KTJetPack</string>
     <string name="edittext">请输入</string>
+    <string name="main_titel">新闻关键词</string>
 </resources>

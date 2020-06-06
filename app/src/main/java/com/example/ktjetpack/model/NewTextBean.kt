@@ -13,8 +13,11 @@ class NewTextBean (): BaseObservable() {
             field=value
             notifyPropertyChanged(BR.reason)
         }
-
+    @get:Bindable
     var result:List<String>?=null
-
+        set(value) {
+            field=value
+            notifyPropertyChanged(BR.result)
+        }
 
 }
