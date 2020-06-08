@@ -5,7 +5,7 @@ import androidx.databinding.Bindable
 import com.example.ktjetpack.BR
 
 
-class NewTextBean (): BaseObservable() {
+class NewsTextBean (): BaseObservable() {
     var error_code:String=""
     @get:Bindable
     var reason: String=""

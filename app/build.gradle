@@ -3,8 +3,6 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-
-
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -22,10 +20,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-//    开启dataBinding
-    dataBinding {
-        enabled true
-    }
 
 //添加 Java 和 Kotlin 的 java8 支持：
     compileOptions {
@@ -36,7 +30,21 @@ android {
         jvmTarget = '1.8'
     }
 
+    //    开启dataBinding
+    dataBinding {
+        enabled true
+    }
+
+
+
 }
+
+kapt {
+    generateStubs = true
+}
+
+
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -57,12 +65,15 @@ dependencies {
     // Retrofit使用Gson转换
     implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
-    //RxAndroid
-//    implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
-//    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.5.0'
+
     def lifecycle_version = "2.2.0"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    kapt "com.android.databinding:compiler:3.3.2"
+
 
 }
